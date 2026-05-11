@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Compare planos de saúde em São Paulo. Veja opções de Amil, Bradesco, SulAmérica e outras operadoras em minutos — sem compromisso.">
+<title>SaúdeClara | Compare Planos de Saúde em SP</title>
+
+<!-- ================================================
+     GOOGLE TAG MANAGER — cole seu ID aqui
+     Substitua GTM-XXXXXXX pelo seu ID real
+     ================================================ -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+
+<!-- ================================================
+     MAKE.COM WEBHOOK URL
+     Substitua pela URL do seu webhook no Make
+     ================================================ -->
+<script>
+  const MAKE_WEBHOOK_URL = 'https://hook.us1.make.com/SEU-WEBHOOK-AQUI';
+  const WHATSAPP_NUMBER  = '5511999999999'; // Substitua pelo número real
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:        #0A1628;
+  --navy-mid:    #1A2E4A;
+  --navy-light:  #243B5A;
+  --green:       #22C55E;
+  --green-dark:  #16A34A;
+  --green-glow:  rgba(34,197,94,.15);
+  --white:       #FFFFFF;
+  --gray-50:     #F8FAFC;
+  --gray-100:    #F1F5F9;
+  --gray-200:    #E2E8F0;
+  --gray-400:    #94A3B8;
+  --gray-500:    #64748B;
+  --gray-600:    #475569;
+  --gray-800:    #1E293B;
+  --font-h:      'Poppins', sans-serif;
+  --font-b:      'Roboto', sans-serif;
+  --radius:      12px;
+  --radius-lg:   16px;
+  --shadow:      0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+}
+
+html { font-size: 16px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-b);
+  background: var(--gray-50);
+  color: var(--gray-800);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================
+   NAV
+   ============================================ */
+.nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  padding: 0 1.25rem;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: var(--font-h);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--navy);
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+.logo span { color: var(--green); }
+
+.nav-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: var(--gray-500);
+  font-family: var(--font-b);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: blink 2.2s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  background: var(--navy);
+  padding: 2.25rem 1.25rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(34,197,94,.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(34,197,94,.12);
+  border: 1px solid rgba(34,197,94,.22);
+  border-radius: 100px;
+  padding: 5px 13px;
+  font-size: 11.5px;
+  color: var(--green);
+  font-family: var(--font-b);
+  font-weight: 500;
+  margin-bottom: 1.1rem;
+}
+
+.hero h1 {
+  font-family: var(--font-h);
+  font-weight: 700;
+  font-size: clamp(1.55rem, 5.5vw, 2.2rem);
+  color: var(--white);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin-bottom: .75rem;
+}
+
+.hero h1 em {
+  color: var(--green);
+  font-style: normal;
+}
+
+.hero-sub {
+  font-size: .92rem;
+  color: rgba(255,255,255,.6);
+  line-height: 1.65;
+  margin-bottom: 2rem;
+  max-width: 460px;
+}
+
+/* ============================================
+   FORM CARD
+   ============================================ */
+.form-card {
+  background: var(--white);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding: 1.6rem 1.25rem 1.75rem;
+  box-shadow: 0 -4px 24px rgba(0,0,0,.12);
+}
+
+.form-card-header { margin-bottom: 1.2rem; }
+.form-card-header h2 {
+  font-family: var(--font-h);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--navy);
+  margin-bottom: .2rem;
+}
+.form-card-header p {
+  font-size: .8rem;
+  color: var(--gray-400);
+}
+
+/* ============================================
+   FORM FIELDS
+   ============================================ */
+.form-grid { display: flex; flex-direction: column; gap: .85rem; }
+
+.field label {
+  display: block;
+  font-size: .75rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  margin-bottom: .3rem;
+  font-family: var(--font-h);
+  letter-spacing: .01em;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  height: 48px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 0 14px;
+  font-size: .95rem;
+  font-family: var(--font-b);
+  color: var(--gray-800);
+  background: var(--white);
+  transition: border-color .15s, box-shadow .15s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(34,197,94,.1);
+}
+
+.field input::placeholder { color: var(--gray-400); }
+
+/* Tipo de plano — pills */
+.pill-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .5rem;
+}
+
+.pill input[type="radio"] { display: none; }
+.pill label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 46px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius);
+  font-size: .8rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  cursor: pointer;
+  transition: all .15s;
+  font-family: var(--font-h);
+  user-select: none;
+  -webkit-user-select: none;
+}
+.pill input:checked + label {
+  border-color: var(--green);
+  background: var(--green-glow);
+  color: var(--navy);
+}
+
+/* Possui plano — radio */
+.radio-row { display: flex; gap: .6rem; }
+.radio-opt { flex: 1; }
+.radio-opt input[type="radio"] { display: none; }
+.radio-opt label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  width: 100%;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius);
+  font-size: .88rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  cursor: pointer;
+  transition: all .15s;
+  font-family: var(--font-h);
+  user-select: none;
+  -webkit-user-select: none;
+}
+.radio-opt input:checked + label {
+  border-color: var(--navy-mid);
+  background: rgba(10,22,40,.05);
+  color: var(--navy);
+}
+
+/* ============================================
+   CTA BUTTON
+   ============================================ */
+.cta-btn {
+  width: 100%;
+  height: 52px;
+  background: var(--green);
+  border: none;
+  border-radius: var(--radius);
+  font-family: var(--font-h);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background .15s, transform .1s, box-shadow .15s;
+  margin-top: 1.1rem;
+  letter-spacing: -.01em;
+  box-shadow: 0 4px 14px rgba(34,197,94,.3);
+}
+.cta-btn:hover { background: var(--green-dark); box-shadow: 0 4px 20px rgba(34,197,94,.4); }
+.cta-btn:active { transform: scale(.98); }
+.cta-btn:disabled { opacity: .7; cursor: not-allowed; }
+
+.form-trust {
+  font-size: .7rem;
+  color: var(--gray-400);
+  text-align: center;
+  margin-top: .75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  line-height: 1.5;
+}
+
+/* ============================================
+   SUCCESS STATE
+   ============================================ */
+.success-state {
+  display: none;
+  padding: 1.5rem 0 .5rem;
+  text-align: center;
+  animation: fadeIn .3s ease;
+}
+.success-state.active { display: block; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+
+.success-icon {
+  width: 58px; height: 58px;
+  background: rgba(34,197,94,.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.success-state h3 {
+  font-family: var(--font-h);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--navy);
+  margin-bottom: .4rem;
+}
+.success-state p {
+  font-size: .87rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin-bottom: 1.4rem;
+}
+
+.wa-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #25D366;
+  border: none;
+  border-radius: var(--radius);
+  height: 52px;
+  padding: 0 2rem;
+  font-family: var(--font-h);
+  font-weight: 600;
+  font-size: .95rem;
+  color: var(--white);
+  cursor: pointer;
+  text-decoration: none;
+  width: 100%;
+  box-shadow: 0 4px 14px rgba(37,211,102,.3);
+  transition: opacity .15s;
+}
+.wa-btn:hover { opacity: .9; }
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+main { background: var(--white); }
+
+/* Social proof bar */
+.social-bar {
+  background: var(--gray-50);
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: .5rem;
+}
+.stat { text-align: center; }
+.stat-n {
+  font-family: var(--font-h);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--navy);
+}
+.stat-l {
+  font-size: .68rem;
+  color: var(--gray-500);
+  margin-top: 2px;
+  line-height: 1.4;
+}
+.stat-div {
+  width: 1px;
+  height: 32px;
+  background: var(--gray-200);
+}
+
+/* Sections */
+.section { padding: 2.25rem 1.25rem; }
+
+.section-tag {
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: .45rem;
+  font-family: var(--font-h);
+}
+
+.section h2 {
+  font-family: var(--font-h);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--navy);
+  line-height: 1.25;
+  margin-bottom: .5rem;
+  letter-spacing: -.02em;
+}
+
+.section-sub {
+  font-size: .88rem;
+  color: var(--gray-500);
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
+}
+
+/* Steps */
+.steps { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.step { display: flex; gap: .875rem; align-items: flex-start; }
+
+.step-num {
+  width: 34px; height: 34px;
+  min-width: 34px;
+  border-radius: 50%;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-h);
+  font-weight: 700;
+  font-size: .78rem;
+  color: var(--white);
+}
+
+.step-body h3 {
+  font-family: var(--font-h);
+  font-weight: 600;
+  font-size: .9rem;
+  color: var(--navy);
+  margin-bottom: .2rem;
+}
+.step-body p {
+  font-size: .82rem;
+  color: var(--gray-500);
+  line-height: 1.55;
+}
+
+/* Operadoras */
+.ops-section {
+  padding: 1.75rem 1.25rem;
+  background: var(--gray-50);
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+}
+.ops-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: .875rem;
+}
+.op-badge {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  padding: 5px 13px;
+  font-size: .78rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  font-family: var(--font-h);
+}
+
+/* Depoimentos */
+.deps { display: flex; flex-direction: column; gap: .875rem; }
+
+.dep {
+  background: var(--gray-50);
+  border-radius: var(--radius);
+  padding: 1.1rem;
+  border-left: 3px solid var(--green);
+}
+.dep-text {
+  font-size: .85rem;
+  color: var(--gray-600);
+  line-height: 1.65;
+  margin-bottom: .75rem;
+}
+.dep-author { display: flex; align-items: center; gap: .6rem; }
+.dep-avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-h);
+  font-weight: 700;
+  font-size: .7rem;
+  color: var(--white);
+  flex-shrink: 0;
+}
+.dep-name {
+  font-size: .8rem;
+  font-weight: 500;
+  color: var(--navy);
+  font-family: var(--font-h);
+}
+.dep-role { font-size: .7rem; color: var(--gray-400); }
+
+/* CTA Final */
+.cta-final {
+  background: var(--navy);
+  padding: 2.5rem 1.25rem;
+  text-align: center;
+}
+.cta-final h2 {
+  font-family: var(--font-h);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--white);
+  margin-bottom: .45rem;
+  letter-spacing: -.02em;
+}
+.cta-final p {
+  font-size: .88rem;
+  color: rgba(255,255,255,.55);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+.cta-final .cta-btn { max-width: 320px; margin: 0 auto; }
+
+/* Footer */
+footer {
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+}
+footer p {
+  font-size: .7rem;
+  color: rgba(255,255,255,.3);
+  line-height: 1.9;
+}
+
+/* ============================================
+   ERROR STATE
+   ============================================ */
+.field-error {
+  font-size: .72rem;
+  color: #EF4444;
+  margin-top: .25rem;
+  font-family: var(--font-b);
+  display: none;
+}
+.field.has-error input,
+.field.has-error select { border-color: #EF4444; }
+.field.has-error .field-error { display: block; }
+
+.pill-group-error,
+.radio-row-error {
+  font-size: .72rem;
+  color: #EF4444;
+  margin-top: .25rem;
+  font-family: var(--font-b);
+  display: none;
+}
+.show-error { display: block !important; }
+
+/* Loading spinner no botão */
+.spinner {
+  width: 18px; height: 18px;
+  border: 2px solid rgba(255,255,255,.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin .6s linear infinite;
+  display: none;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+
+<!-- ================================================
+     NAV
+     ================================================ -->
+<nav class="nav">
+  <a href="#" class="logo">saúde<span>clara</span></a>
+  <div class="nav-status">
+    <span class="status-dot"></span>
+    Consultores disponíveis
+  </div>
+</nav>
+
+<!-- ================================================
+     HERO + FORMULÁRIO
+     ================================================ -->
+<section class="hero">
+  <div class="hero-badge">
+    <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#22C55E"/></svg>
+    Comparação gratuita · São Paulo
+  </div>
+
+  <h1>Você preenche em 60 segundos.<br><em>A gente compara e te manda as melhores opções no WhatsApp.</em></h1>
+
+  <p class="hero-sub">Amil, Bradesco, SulAmérica e outras operadoras — sem ligações, sem compromisso.</p>
+
+  <!-- FORM CARD -->
+  <div class="form-card">
+    <div class="form-card-header">
+      <h2>Preencha e receba opções agora</h2>
+      <p>Grátis · Sem compromisso · Resposta em menos de 1h</p>
+    </div>
+
+    <!-- FORMULÁRIO -->
+    <div id="lead-form">
+      <div class="form-grid">
+
+        <div class="field" id="field-nome">
+          <label for="nome">Seu nome</label>
+          <input type="text" id="nome" name="nome" placeholder="Como prefere ser chamado?" autocomplete="given-name" inputmode="text">
+          <div class="field-error">Por favor, informe seu nome.</div>
+        </div>
+
+        <div class="field" id="field-wpp">
+          <label for="wpp">WhatsApp</label>
+          <input type="tel" id="wpp" name="wpp" placeholder="(11) 99999-9999" autocomplete="tel" inputmode="tel" maxlength="15">
+          <div class="field-error">Informe um WhatsApp válido com DDD.</div>
+        </div>
+
+        <div class="field" id="field-idade">
+          <label for="idade">Sua idade</label>
+          <input type="number" id="idade" name="idade" placeholder="Ex: 34" min="1" max="100" inputmode="numeric">
+          <div class="field-error">Por favor, informe sua idade.</div>
+        </div>
+
+        <div class="field" id="field-tipo">
+          <label>Tipo de plano</label>
+          <div class="pill-group">
+            <div class="pill">
+              <input type="radio" name="tipo" id="tipo-cpf" value="Individual (CPF)">
+              <label for="tipo-cpf">👤 Individual</label>
+            </div>
+            <div class="pill">
+              <input type="radio" name="tipo" id="tipo-mei" value="MEI">
+              <label for="tipo-mei">💼 MEI</label>
+            </div>
+            <div class="pill">
+              <input type="radio" name="tipo" id="tipo-fam" value="Familiar">
+              <label for="tipo-fam">👨‍👩‍👧 Familiar</label>
+            </div>
+            <div class="pill">
+              <input type="radio" name="tipo" id="tipo-emp" value="Empresarial">
+              <label for="tipo-emp">🏢 Empresarial</label>
+            </div>
+          </div>
+          <div class="pill-group-error" id="tipo-error">Selecione o tipo de plano.</div>
+        </div>
+
+        <div class="field" id="field-plano">
+          <label>Já possui plano de saúde?</label>
+          <div class="radio-row">
+            <div class="radio-opt">
+              <input type="radio" name="plano" id="plano-sim" value="Sim">
+              <label for="plano-sim">Sim</label>
+            </div>
+            <div class="radio-opt">
+              <input type="radio" name="plano" id="plano-nao" value="Não">
+              <label for="plano-nao">Não</label>
+            </div>
+          </div>
+          <div class="radio-row-error" id="plano-error">Selecione uma opção.</div>
+        </div>
+
+      </div><!-- /form-grid -->
+
+      <button class="cta-btn" id="submit-btn" onclick="submitForm()">
+        <span id="btn-text">Ver opções disponíveis</span>
+        <svg id="btn-arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M3 9H15M15 9L10 4M15 9L10 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="spinner" id="btn-spinner"></div>
+      </button>
+
+      <p class="form-trust">
+        <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+          <path d="M5.5 1L6.8 3.7H9.7L7.5 5.5L8.3 8.5L5.5 7L2.7 8.5L3.5 5.5L1.3 3.7H4.2L5.5 1Z" fill="#94A3B8"/>
+        </svg>
+        Sem spam · Seus dados são protegidos pela LGPD
+      </p>
+    </div><!-- /lead-form -->
+
+    <!-- SUCESSO -->
+    <div class="success-state" id="success">
+      <div class="success-icon">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+          <path d="M4 13L10 19L22 7" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>Perfeito! Recebemos seus dados.</h3>
+      <p>Um consultor vai analisar seu perfil e enviar as melhores opções no seu WhatsApp em breve.</p>
+      <a id="wa-link" class="wa-btn" href="#" target="_blank" rel="noopener noreferrer">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M10 1.667A8.333 8.333 0 1 0 18.333 10c0-4.602-3.731-8.333-8.333-8.333Zm4.1 11.258c-.175.491-.875.9-1.424.991-.383.067-.882.117-2.566-.55-2.15-.85-3.541-3.025-3.65-3.167-.108-.141-.9-1.2-.9-2.283 0-1.084.567-1.617.783-1.842.184-.191.483-.275.775-.275l.558.01c.175.009.417.067.65.517.233.449.8 1.95.866 2.092.075.141.125.308.025.491-.1.183-.15.3-.3.458-.141.159-.3.35-.425.475-.15.141-.308.3-.133.591.175.292.775 1.275 1.658 2.067 1.142 1.017 2.1 1.333 2.392 1.475.292.141.458.117.633-.075.175-.192.75-.875.95-1.175.2-.3.4-.25.667-.15.266.1 1.683.792 1.975.933.291.142.483.208.558.325.075.117.075.675-.1 1.167Z" fill="white"/>
+        </svg>
+        Continuar no WhatsApp
+      </a>
+    </div>
+
+  </div><!-- /form-card -->
+</section>
+
+<!-- ================================================
+     MAIN
+     ================================================ -->
+<main>
+
+  <!-- Social proof -->
+  <div class="social-bar">
+    <div class="stat">
+      <div class="stat-n">+12 mil</div>
+      <div class="stat-l">pessoas ajudadas<br>em SP</div>
+    </div>
+    <div class="stat-div"></div>
+    <div class="stat">
+      <div class="stat-n">4.8 ★</div>
+      <div class="stat-l">avaliação<br>média</div>
+    </div>
+    <div class="stat-div"></div>
+    <div class="stat">
+      <div class="stat-n">&lt; 1h</div>
+      <div class="stat-l">retorno<br>garantido</div>
+    </div>
+  </div>
+
+  <!-- Como funciona -->
+  <section class="section">
+    <div class="section-tag">Como funciona</div>
+    <h2>Simples, rápido e sem pressão</h2>
+    <p class="section-sub">Não vendemos planos. Ajudamos você a encontrar o melhor para o seu perfil e orçamento.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Você preenche em 60 segundos</h3>
+          <p>Informações básicas sobre você e o que procura. Sem burocracia, sem dados sensíveis agora.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Nosso consultor analisa seu perfil</h3>
+          <p>Comparamos opções reais disponíveis em SP alinhadas ao que você precisa e ao seu orçamento.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Você recebe as opções no WhatsApp</h3>
+          <p>Com preços, coberturas e diferenças explicadas de forma clara. Você decide com calma, sem pressão.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Operadoras -->
+  <div class="ops-section">
+    <div class="section-tag">Operadoras disponíveis</div>
+    <div class="ops-grid">
+      <span class="op-badge">Amil</span>
+      <span class="op-badge">Bradesco Saúde</span>
+      <span class="op-badge">SulAmérica</span>
+      <span class="op-badge">Porto Seguro</span>
+      <span class="op-badge">Hapvida</span>
+      <span class="op-badge">NotreDame</span>
+      <span class="op-badge">Prevent Senior</span>
+      <span class="op-badge">Sompo</span>
+    </div>
+  </div>
+
+  <!-- Depoimentos -->
+  <section class="section">
+    <div class="section-tag">Depoimentos</div>
+    <h2>Quem já encontrou o plano ideal</h2>
+
+    <div class="deps" style="margin-top:1.25rem">
+      <div class="dep">
+        <p class="dep-text">"Preenchí o formulário às 9h e às 10h já tinha três opções com preço real no meu WhatsApp. Economizei R$ 180 por mês em relação ao que eu pagava antes."</p>
+        <div class="dep-author">
+          <div class="dep-avatar" style="background:#1A2E4A">MF</div>
+          <div>
+            <div class="dep-name">Marcela F.</div>
+            <div class="dep-role">MEI · Pinheiros, SP</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep">
+        <p class="dep-text">"Precisava de plano para minha equipe de 6 pessoas. O consultor entendeu exatamente o que eu precisava e não ficou pressionando. Ótima experiência."</p>
+        <div class="dep-author">
+          <div class="dep-avatar" style="background:#0A4A2A">RC</div>
+          <div>
+            <div class="dep-name">Roberto C.</div>
+            <div class="dep-role">Empresarial · Vila Mariana, SP</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep">
+        <p class="dep-text">"Achei que ia ser chato igual todo comparador. Mas foi diferente — alguém de verdade explicou as diferenças e me ajudou a escolher com base no que eu usaria."</p>
+        <div class="dep-author">
+          <div class="dep-avatar" style="background:#4A1A0A">AT</div>
+          <div>
+            <div class="dep-name">Ana T.</div>
+            <div class="dep-role">Individual · Moema, SP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <div class="cta-final">
+    <h2>Ainda está procurando?</h2>
+    <p>Preencha agora e veja opções reais<br>disponíveis para você em São Paulo.</p>
+    <button class="cta-btn" onclick="scrollToForm()">
+      Quero ver opções
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path d="M3 9H15M15 9L10 4M15 9L10 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <footer>
+    <p>
+      © 2025 SaúdeClara · CNPJ 00.000.000/0001-00<br>
+      Não somos corretora. Somos uma plataforma de qualificação e comparação de planos de saúde.<br>
+      Seus dados são protegidos conforme a Lei Geral de Proteção de Dados (LGPD).
+    </p>
+  </footer>
+
+</main>
+
+<!-- ================================================
+     JAVASCRIPT
+     ================================================ -->
+<script>
+
+/* ---------- Máscara WhatsApp ---------- */
+document.getElementById('wpp').addEventListener('input', function(e) {
+  let v = e.target.value.replace(/\D/g, '');
+  if (v.length <= 2)       v = v.replace(/^(\d{0,2})/, '($1');
+  else if (v.length <= 7)  v = v.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+  else                     v = v.replace(/^(\d{2})(\d{5})(\d{0,4}).*/, '($1) $2-$3');
+  e.target.value = v;
+});
+
+/* ---------- Pre-select via URL param ---------- */
+/* Use: ?tipo=mei ou ?tipo=familiar ou ?tipo=empresarial */
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const tipo = (params.get('tipo') || '').toLowerCase();
+  const map = { mei: 'tipo-mei', familiar: 'tipo-fam', empresarial: 'tipo-emp', individual: 'tipo-cpf', cpf: 'tipo-cpf' };
+  if (map[tipo]) {
+    const el = document.getElementById(map[tipo]);
+    if (el) el.checked = true;
+  }
+})();
+
+/* ---------- Validação ---------- */
+function validate() {
+  let ok = true;
+
+  const nome = document.getElementById('nome');
+  const fieldNome = document.getElementById('field-nome');
+  if (!nome.value.trim()) { fieldNome.classList.add('has-error'); ok = false; }
+  else fieldNome.classList.remove('has-error');
+
+  const wpp = document.getElementById('wpp');
+  const fieldWpp = document.getElementById('field-wpp');
+  const wppClean = wpp.value.replace(/\D/g, '');
+  if (wppClean.length < 10) { fieldWpp.classList.add('has-error'); ok = false; }
+  else fieldWpp.classList.remove('has-error');
+
+  const idade = document.getElementById('idade');
+  const fieldIdade = document.getElementById('field-idade');
+  if (!idade.value || parseInt(idade.value) < 1 || parseInt(idade.value) > 100) {
+    fieldIdade.classList.add('has-error'); ok = false;
+  } else fieldIdade.classList.remove('has-error');
+
+  const tipo = document.querySelector('input[name="tipo"]:checked');
+  const tipoError = document.getElementById('tipo-error');
+  if (!tipo) { tipoError.classList.add('show-error'); ok = false; }
+  else tipoError.classList.remove('show-error');
+
+  const plano = document.querySelector('input[name="plano"]:checked');
+  const planoError = document.getElementById('plano-error');
+  if (!plano) { planoError.classList.add('show-error'); ok = false; }
+  else planoError.classList.remove('show-error');
+
+  return ok;
+}
+
+/* ---------- Submit ---------- */
+async function submitForm() {
+  if (!validate()) return;
+
+  const btn = document.getElementById('submit-btn');
+  const btnText = document.getElementById('btn-text');
+  const btnArrow = document.getElementById('btn-arrow');
+  const btnSpinner = document.getElementById('btn-spinner');
+
+  // Loading state
+  btn.disabled = true;
+  btnText.textContent = 'Enviando...';
+  btnArrow.style.display = 'none';
+  btnSpinner.style.display = 'block';
+
+  const nome  = document.getElementById('nome').value.trim();
+  const wpp   = document.getElementById('wpp').value.trim();
+  const idade = document.getElementById('idade').value.trim();
+  const tipo  = document.querySelector('input[name="tipo"]:checked').value;
+  const plano = document.querySelector('input[name="plano"]:checked').value;
+
+  // UTM params
+  const params  = new URLSearchParams(window.location.search);
+  const utmData = {
+    utm_source:   params.get('utm_source')   || '',
+    utm_medium:   params.get('utm_medium')   || '',
+    utm_campaign: params.get('utm_campaign') || '',
+    utm_term:     params.get('utm_term')     || '',
+    utm_content:  params.get('utm_content')  || '',
+  };
+
+  const lead = {
+    nome,
+    whatsapp:    wpp,
+    idade,
+    tipo_plano:  tipo,
+    possui_plano: plano,
+    origem:      'lp-sp-v1',
+    timestamp:   new Date().toISOString(),
+    ...utmData
+  };
+
+  /* ------ Envio para Make.com ------ */
+  try {
+    await fetch(MAKE_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(lead),
+      mode: 'no-cors' // Make.com aceita no-cors
+    });
+  } catch (err) {
+    console.warn('Webhook error:', err);
+    // Não bloqueia o fluxo — lead ainda é registrado via dataLayer
+  }
+
+  /* ------ Google Tag Manager / Ads ------ */
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event:      'lead_form_submit',
+    lead_tipo:  tipo,
+    lead_plano: plano,
+    lead_idade: idade,
+    ...utmData
+  });
+
+  /* ------ Mostrar sucesso ------ */
+  document.getElementById('lead-form').style.display = 'none';
+
+  const nomeFirst = nome.split(' ')[0];
+  const waMsg = encodeURIComponent(
+    `Olá! Me chamo ${nomeFirst}, tenho ${idade} anos e quero ver opções de plano ${tipo}. Já tenho plano: ${plano}.`
+  );
+  document.getElementById('wa-link').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMsg}`;
+
+  document.getElementById('success').classList.add('active');
+}
+
+/* ---------- Scroll to form ---------- */
+function scrollToForm() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(() => document.getElementById('nome').focus(), 600);
+}
+
+</script>
+
+</body>
+</html>
