@@ -897,7 +897,7 @@ document.getElementById('wpp').addEventListener('input', function(e) {
 /* ---------- Geolocalização por IP (cidade/estado sem perguntar) ---------- */
 let geoCidade = '';
 let geoEstado = '';
-(async function() {
+const geoPromise = (async function() {
   try {
     const resp = await fetch('https://ipapi.co/json/');
     if (resp.ok) {
@@ -906,7 +906,6 @@ let geoEstado = '';
       geoEstado = geo.region_code || geo.region || '';
     }
   } catch (e) {
-    // Se falhar, segue sem localização — não bloqueia o lead
     console.warn('Geo lookup falhou:', e);
   }
 })();
@@ -958,7 +957,7 @@ function validate() {
 
 /* ---------- Submit ---------- */
 async function submitForm() {
-  if (!validate()) return;
+  await geoPromise;  // <<< ADICIONE ESTA LINHA NO COMEÇO
 
   const btn = document.getElementById('submit-btn');
   const btnText = document.getElementById('btn-text');
