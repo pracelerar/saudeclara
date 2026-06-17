@@ -894,21 +894,10 @@ document.getElementById('wpp').addEventListener('input', function(e) {
   else                     v = v.replace(/^(\d{2})(\d{5})(\d{0,4}).*/, '($1) $2-$3');
   e.target.value = v;
 });
-/* ---------- Geolocalização por IP (cidade/estado sem perguntar) ---------- */
+/* ---------- Geolocalização (desativada por enquanto) ---------- */
 let geoCidade = '';
 let geoEstado = '';
-const geoPromise = (async function() {
-  try {
-    const resp = await fetch('https://ipapi.co/json/');
-    if (resp.ok) {
-      const geo = await resp.json();
-      geoCidade = geo.city || '';
-      geoEstado = geo.region_code || geo.region || '';
-    }
-  } catch (e) {
-    console.warn('Geo lookup falhou:', e);
-  }
-})();
+     
 /* ---------- Pre-select via URL param ---------- */
 /* Use: ?tipo=mei ou ?tipo=familiar ou ?tipo=empresarial */
 (function() {
@@ -957,7 +946,6 @@ function validate() {
 
 /* ---------- Submit ---------- */
 async function submitForm() {
-  await geoPromise;  // <<< ADICIONE ESTA LINHA NO COMEÇO
 
   const btn = document.getElementById('submit-btn');
   const btnText = document.getElementById('btn-text');
